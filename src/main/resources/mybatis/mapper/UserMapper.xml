@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.jun.mapper.UserMapper">
+	<insert id="inserUserInfo" parameterType="com.project.jun.domain.UserInfo">
+		INSERT INTO userinfo(user_id, user_password, user_auth) VALUES (#{user_id}, #{user_password}, #{user_auth})
+	</insert>
+	
+	<select id="selectAllUserInfo" resultType="com.project.jun.domain.UserInfo">
+		SELECT * FROM userinfo
+	</select>
+	
+	<select id="selectOneUserInfoByUserNo" parameterType="int" resultType="com.project.jun.domain.UserInfo">
+		SELECT * FROM userinfo WHERE user_no=#{user_no}
+		
+	</select>
+	
+	<select id="selectOneUserInfoByUserId" parameterType="String" resultType="com.project.jun.domain.UserInfo">
+		SELECT * FROM userinfo WHERE USER_id=#{user_id}
+	</select>
+	
+	<update id="updateUserInfoByUserNo" parameterType="com.project.jun.domain.UserInfo">
+		UPDATE userinfo SET user_id=#{user_id}, user_password=#{user_password}, user_auth=#{user_auth} WHERE user_no=#{user_no}
+	</update>
+	
+	<delete id="deleteUserInfoByUserNo" parameterType="int">
+		DELETE FROM userinfo WHERE user_no=#{user_no}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.jun.mapper.ReplyMapper">
+	<insert id="insertReplyInfo" parameterType="com.project.jun.domain.ReplyInfo">
+		INSERT INTO replyinfo(reply_content, review_no) VALUES (#{reply_content}, #{review_no})
+	</insert>
+	
+	<select id="selectALLReplyInfo" resultType="com.project.jun.domain.ReplyInfo">
+		SELECT * FROM replyinfo
+	</select>
+	
+	<select id="selectReplyInfoByReplyNo" parameterType="int" resultType="com.project.jun.domain.ReplyInfo">
+		SELECT * FROM replyinfo WHERE reply_no=#{reply_no}
+	</select>
+	
+	<update id="updateReplyInfoByReplyNo" parameterType="com.project.jun.domain.ReplyInfo">
+		UPDATE replyinfo SET reply_content=#{reply_content} WHERE reply_no=#{reply_no}
+	</update>
+	
+	<delete id="deleteReplyInfoByReplyNo" parameterType="int">
+		DELETE FROM replyinfo WHERE reply_no=#{reply_no}
+	</delete>
+	
+</mapper>
